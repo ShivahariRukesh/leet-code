@@ -29,6 +29,6 @@ class Solution(object):
 
 
 sol =  Solution()
-
-print(sol.lengthOfLongestSubstring("pppq"))
+userIn= input("Enter the string\t")
+print(sol.lengthOfLongestSubstring(userIn))
 
