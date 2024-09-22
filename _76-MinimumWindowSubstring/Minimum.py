@@ -11,7 +11,7 @@ class Solution(object):
         
         if( lenS<lenT):
             return ""
-        obj={}
+ 
         temp = lenT 
         k=""
         a=""
@@ -25,21 +25,23 @@ class Solution(object):
                     if (t[j] in re):
                         re= re.replace(t[j],'',1)
                         k= k+t[j]
+                        
                     else:
-                        k=k+'3neil' 
+                        k=k+'?'
                 if(k==t):
+                    
                     i=lenS*2
                     temp=lenS+1
                     break
             temp=temp+1
-        return a
+        if(k==t):
+            return a    
+        return "" 
     
     
 
         
 obj = Solution()
-# s = input("Enter the main string\t")
-# t = input("Enter the substring\t")
-s='adbccdee'
-t='abcc'
+s = input("Enter the main string\t")
+t = input("Enter the substring\t")
 print(obj.minWindow(s,t))
