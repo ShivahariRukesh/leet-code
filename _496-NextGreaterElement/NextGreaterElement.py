@@ -12,7 +12,7 @@ class Solution(object):
         for i in range(len(nums1)):
             foundIndex=nums2.index(nums1[i])
             
-            if(foundIndex):
+            if(foundIndex>-1):
                 for j in range(foundIndex+1,len(nums2)):
                     print(nums1[i],nums2[j])
                     if(nums1[i]<nums2[j]):
