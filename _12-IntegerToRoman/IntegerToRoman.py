@@ -64,3 +64,6 @@ class Solution(object):
 
             
         return res
+    
+a = int(input("Enter the integer\t"))
+print("The equivalent roman number to the given integer is\t",Solution().intToRoman(a))    
