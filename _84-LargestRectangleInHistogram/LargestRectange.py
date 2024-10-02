@@ -82,3 +82,11 @@ class Solution(object):
         print(max)
                     
         return max 
+    
+    
+n = int(input("Enter the length of array\t"))
+arr=[]
+for i in range(n):
+    arr.append(int(input(f"Enter the value for rectangle {i+1}\t")))
+    
+print("The largest rectangle in the histogram is\t",Solution().largestRectangleArea(arr))
