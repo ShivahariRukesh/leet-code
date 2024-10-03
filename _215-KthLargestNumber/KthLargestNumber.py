@@ -15,3 +15,11 @@ class Solution(object):
 
 
         return arr[-1]
+    
+    
+n =int(input("Enter the length of an array\t"))
+arr=[]
+for i in range(n):
+    arr.append(int(input(f"Enter the value for {i+1} position\t")))
+k = int(input("Enter the Kth value must be within the length of the Array\t"))
+print(f"The {k}th largest value of the given array is\t",Solution().findKthLargest(arr,k))
