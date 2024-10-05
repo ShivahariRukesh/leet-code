@@ -1,4 +1,5 @@
-class Solution(object):
+#Own Solution
+class OherSolution(object):
     def findKthLargest(self, nums, k):
         """
         :type nums: List[int]
@@ -15,40 +16,46 @@ class Solution(object):
 
 
         return arr[-1]
+    #
     
-
 
 # Using max-heap to eradicate the exceeding time limit    
-arr =[1,-7,3,2,6,0,-8]
-sort =[]
+class Solution(object):
+    def heapify(self,arr,n,i):
+        largest=i
+        left=(2*i)+1
+        right=(2*i)+2
+        
+        if left<n and arr[left]>arr[largest]:
+            largest = left
+            
+        if right<n and arr[right]>arr[largest]:
+            largest = right
+            
+        if (largest!=i):
+            arr[largest],arr[i]= arr[i],arr[largest]
+            self.heapify(arr,n,largest)
+            
+    def findKthLargest(self,nums,k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+        arr= nums    
+        n = len(arr)    
+        for i in range(n//2-1,-1,-1):
+            self.heapify(arr,n,i)
+            
+        for i in range(n-1,0,-1):
+            arr[0],arr[i]= arr[i],arr[0]
+            self.heapify(arr,i,0)
+        
+        return nums[-k]
 
 
-def heapae(arr):
-    for i in range(len(arr)):
-        c=i+1
-        while(c>0):
-          if(arr[c-1]<arr[i]):
-              temp = arr[c-1]
-              arr[c-1]=arr[i]
-              arr[i]=temp
-              break
-          c=c//2
-    return arr
-       
-arr =heapae(arr)
-
-while(arr and len(arr)):
-    temp = arr[0]
-    arr[0] = arr[-1]
-    arr[-1]=temp
     
-    sort.append(arr.pop())
-    
-    heapae(arr)
-   
-print(sort)   
 
-# Using max heap sort
 
     
 n =int(input("Enter the length of an array\t"))
