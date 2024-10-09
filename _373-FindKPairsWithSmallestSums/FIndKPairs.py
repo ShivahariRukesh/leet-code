@@ -6,11 +6,16 @@ class Solution(object):
         :type k: int
         :rtype: List[List[int]]
         """
-        sum=[]
+        def sortMe(val):
+            return val[0]+val[1]
+
         for i in nums1:
             for j in nums2:
                 sum.append([i,j])
-        print(sum)
+        
+
+        sum.sort(key=sortMe)
+        
         return sum[0:k]
     
 
