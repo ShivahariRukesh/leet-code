@@ -1,3 +1,4 @@
+## Time Limit Exceeded
 class Solution(object):
     def kSmallestPairs(self, nums1, nums2, k):
         """
@@ -17,6 +18,46 @@ class Solution(object):
         sum.sort(key=sortMe)
         
         return sum[0:k]
+##
+# Memory Limit Exceeded    
+class Solution(object):
+    def kSmallestPairs(self, nums1, nums2, k):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :type k: int
+        :rtype: List[List[int]]
+        """
+        arr=[]
+        for i in nums1:
+            for j in nums2:
+                arr.append([i,j])
+
+        def heapMe(arr,n,i):
+            
+            l = i
+            left = 2*i+1
+            right = 2*i+2
+            
+            if(left <n and ((arr[left][0]+arr[left][1])>(arr[l][0]+arr[l][1]))):
+                l=left
+            if(right <n and ((arr[right][0]+arr[right][1])>(arr[l][0]+arr[l][1]))):
+                l=right
+            
+            if l!=i:
+                arr[l],arr[i] = arr[i],arr[l]
+                heapMe(arr,n,l)
+        n =len(arr)    
+        for i  in range(n//2-1,-1,-1):
+            heapMe(arr,n,i)
+            
+        for i in range(n-1,0,-1):
+            arr[0],arr[i] = arr[i],arr[0]
+            heapMe(arr,i,0)
+            
+            
+        return arr[0:k]
+##
     
 
 arr1 = []
