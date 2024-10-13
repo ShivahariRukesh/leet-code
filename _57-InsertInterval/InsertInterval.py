@@ -12,6 +12,7 @@ class Solution(object):
         :type newInterval: List[int]
         :rtype: List[List[int]]
         """
+        print(intervals,newInterval)
         n=len(intervals)
         i=0
         arr=[]
@@ -35,6 +36,26 @@ class Solution(object):
             arr.append([intervals[i][0],intervals[i][1]])
             i=i+1
         return arr
+    
+    
+arr1 = []
+arr12=[]
+arr2=[]
+
+n1= int(input("Enter the size of an interval\t"))
+print("The values should be entered in an ascending order\n")
+for i in range(n1):
+    for j in range(2):
+        arr12.append(int(input(f"Enter the value in {i+1} row and {j+1} column position\t")))
+        
+    arr1.append(arr12)
+    arr12=[]
+print("Enter the new interval in ascending order\n")
+for j in range(2):
+    arr2.append(int(input(f"Enter the value for {j+1} position\t")))
+    
+    
+print(f"The required output is\n",Solution().insert(arr1,arr2))
 
             
 
