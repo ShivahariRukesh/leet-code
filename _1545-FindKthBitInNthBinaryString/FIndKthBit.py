@@ -7,11 +7,11 @@ class Solution(object):
             else:
                 newVal = newVal+ '0'
         
-        againVal=""
-        for i in range(len(newVal)):
-            againVal = newVal[i]+againVal
+        # againVal=""
+        # for i in range(len(newVal)):
+        #     againVal = newVal[i]+againVal
             
-        return againVal
+        return newVal[::-1]
 
     def findKthBit(self, n, k):
         """
@@ -25,4 +25,7 @@ class Solution(object):
             arr.append(arr[i-1] + "1" + self.revInver(arr[i-1]) )
         
         return(arr[n-1][k-1])
+    
+    
+print("The required bit is\t",Solution().findKthBit(int(input("Enter the value for n\t")),int(input("Enter the value for k\t"))))
         
