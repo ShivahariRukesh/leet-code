@@ -4,16 +4,26 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        small=0
-        big=0
-        for i in s:
-            if(i==')' or i=="("):
-                small+=1
-            else:
-                big +=1
+        paranthStack=[]
+        for i in range(len(s)):
+            if(s[i]=="(" or s[i]=="[" or s[i]=="{"):
+                paranthStack.append(s[i])
+            elif(s[i]==")"):
+                if(paranthStack and paranthStack[-1]=="(" ):
+                    paranthStack.pop()            
+                else:
+                    return False
+            elif(s[i]=="]"):
+                if(paranthStack and paranthStack[-1]=="[" ):
+                    paranthStack.pop()                  
+                else:
+                    return False
 
-        if(small%2==0 and big%2==0):
-            return True
-        else:
-            return False
+            elif(s[i]=="}"):
+                if(paranthStack and paranthStack[-1]=="{" ):
+                    paranthStack.pop()                  
+                else:
+                    return False
+        return not paranthStack
         
+print("The entered parantheses is\t",Solution().isValid(input("Enter the parantheses [{()}]\t"))," as a valid one ")
