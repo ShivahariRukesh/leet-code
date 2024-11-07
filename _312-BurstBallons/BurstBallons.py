@@ -27,4 +27,9 @@ class Solution(object):
             
                 
                 
-                    
+arr1 =[]
+n  =int(input("Enter the nummber of ballons you want to place\t"))     
+for i in range(n):
+    arr1.append(int(input(f"The point for ballon number {i+1} is\t")))
+    
+print("The maximum coins one can acquire by bursting the ballons wisely is: ",Solution().maxCoins(arr1))
