@@ -12,3 +12,10 @@ class Solution(object):
 
         return count
 
+
+n = int(input("Enter the length of an array\t"))
+arr=[]
+for i in range(n):
+    arr.append(int(input(f"Enter the {i+1}th element\t")))
+    
+print("The required result is\t",   Solution().numIdenticalPairs(arr))
