@@ -1,3 +1,4 @@
+import sys
 class Solution(object):
     def reverse(self, x):
         """
@@ -6,14 +7,25 @@ class Solution(object):
         """
         a=0
         temp=abs(x)
-        rev="0"
+        rev=0
         
         while (temp!=0):
+            
             a=temp%10
-            rev= rev+str(a)
-            temp=temp/10
+            rev= rev*10+a
+            temp=temp//10
 
-        if x<0:
-            return -int(rev)
+
+        if -rev < -2**31 or rev > 2**31 - 1:
+            return 0
         else:
-            return int(rev)
+
+            if x<0:
+                return -rev
+            else:
+                return rev
+            
+
+
+print("The desired result is",Solution().reverse(int(input("Enter the integer\t"))))            
+        
