@@ -19,3 +19,40 @@ if(max<calc){
     }
     return max;
 };
+
+
+//This is the optimal solution where just only a little hint was enough
+
+
+var maxScoreSightseeingPair = function(values) {
+    
+    let max1= -Infinity;
+
+
+  let calc1;
+  let calc2;
+
+  let i=1
+
+  let currentIValue = values[0]
+  while(i <values.length){
+
+      
+calc2 = values[i] - i;
+if(calc2+currentIValue > max1){
+  max1 = calc2+currentIValue
+}
+
+calc1 = values[i] + i;
+if(currentIValue<calc1){
+currentIValue = calc1
+}
+
+
+
+
+ i++;     
+  }
+  
+  return max1;
+};
